@@ -31,6 +31,8 @@ Puppet::Reports.register_report(:slack) do
 
 
     # filter
+    return if self.status == 'unchanged'
+    #return if self.status == 'changed'
     status_icon = case self.status
                         when 'changed' then ':sparkles:'
                         when 'failed' then ':no_entry:'
